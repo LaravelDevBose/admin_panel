@@ -35,18 +35,7 @@
 						</div>
 					</div>
 
-					<div class="form-group">
-						<label class="col-lg-3 control-label">Brand: <span class="text-bold text-danger">*</span></label>
-						<div class="col-lg-9">
-	                        <select data-placeholder="Select Product Brand" required name="brand_id" class="select">
-	                        	<option></option>
-	                        	<?php if(isset($brands)): foreach($brands as $brand):?>
-	                            <option value="<?= $brand->id ?>"><?= $brand->b_title ?></option> 
-	                            <?php endforeach; endif; ?>
-	                        </select>
-	                    </div>
-	    			</div>
-
+					
 					<div class="form-group">
 						<label class="col-lg-3 control-label">Category: <span class="text-bold text-danger">*</span></label>
 						<div class="col-lg-9">
@@ -77,60 +66,6 @@
 				</div>
 			</fieldset>
 
-			<fieldset>
-				<legend class="text-semibold">
-					<i class="icon-file-text2 position-left"></i> Extra information
-					<a class="control-arrow" data-toggle="collapse" data-target="#demo2">
-						<i class="icon-circle-down2"></i>
-					</a>
-				</legend>
-
-				<div class="collapse in" id="demo2">
-    				
-    				<div class="form-group">
-						<label class="col-lg-3 control-label">Product Discount(%): </label>
-						<div class="col-lg-9">
-							<input type="number" class="form-control"  name="discount" placeholder="Product Discount">
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label class="col-lg-3 control-label">Previous Price: </label>
-						<div class="col-lg-9">
-							<input type="number" class="form-control"  name="prv_price" placeholder="Previous Price">
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label class="col-lg-3 control-label">Product Status: </label>
-						<div class="col-lg-9">
-							<label class="checkbox-inline">
-								<input type="checkbox" class="styled" value="1" name="top_sell" >
-								Top Sale
-							</label>
-							<label class="checkbox-inline">
-								<input type="checkbox" class="styled" value="1" name="sale">
-								Sale
-							</label>
-
-							<label class="checkbox-inline">
-								<input type="checkbox" class="styled" value="1" name="up_comming">
-								Up Comming
-							</label>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label class="col-lg-3 control-label">Product Show In: </label>
-						<div class="col-lg-9">
-							<label class="checkbox-inline">
-								<input type="checkbox" class="styled" value="1" name="feature">
-								Feature
-							</label>
-						</div>
-					</div>
-	    		</div>
-			</fieldset>
 
 			<fieldset>
 				<legend class="text-semibold">
@@ -142,12 +77,7 @@
 
 				<div class="collapse in" id="demo3">
     				
-					<div class="form-group">
-						<label class="col-lg-3 control-label">Quick Overview: <span class="text-bold text-danger">*</span></label>
-						<div class="col-lg-9">
-							<textarea rows="5" cols="5" name="overview" class="form-control" required maxlength="1000" placeholder="Enter your Product Quick Overview......."></textarea>
-						</div>
-					</div>
+					
 
 
 	    			<div class="form-group">

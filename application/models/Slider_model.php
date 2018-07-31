@@ -19,7 +19,7 @@ Class Slider_model extends CI_Model{
 		$file_path = $this->image_upload($imageName, $tmp_name);
 		$this->image_resize($file_path);
 		$attr = [
-			's_title' => 'Slider Image',
+			's_title' => $this->input->post('s_title'),
 			'image' =>$file_path
 		];
 		$insert = $this->db->insert('sliders', $attr);
@@ -57,7 +57,7 @@ Class Slider_model extends CI_Model{
 		if( in_array($type, array('jpg', 'png', 'jpeg', 'gif', 'JPG', 'PNG', 'JPEG', 'GIF' )) ){
 
 				if( is_uploaded_file( $tmp_name ) ){
-					$dist_path = './libs/upload_pic/slider_image/'.$file_name ;
+					$dist_path = 'libs/upload_pic/slider_image/'.$file_name ;
 				move_uploaded_file( $tmp_name, $dist_path);
 				return $dist_path;
 				
@@ -79,10 +79,10 @@ Class Slider_model extends CI_Model{
 		 $configSize1['source_image'] 	 = $sourse;
 		 $configSize1['create_thumb']    = FALSE;
 		 $configSize1['maintain_ratio']  = FALSE;
-		 $configSize1['width']           = 1200;
+		 $configSize1['width']           = 1920;
 		 $config['quality']   			 = '100';
-		 $configSize1['height']          = 500;
-		 $configSize1['new_image'] 		 = './libs/upload_pic/slider_image/';
+		 $configSize1['height']          = 650;
+		 $configSize1['new_image'] 		 = 'libs/upload_pic/slider_image/';
 
 		 $this->image_lib->initialize($configSize1);
 		 $this->image_lib->resize();

@@ -6,69 +6,93 @@ Class Product_model extends CI_Model{
 	public function get_all_product_info()
 	{
 		// return $this->db->get('products')->result();
-		$this->db->select('products.*,categories.c_title, brands.b_title');
+		$this->db->select('products.*,categories.c_title');
 		$this->db->from('products');
 		$this->db->join('categories', 'products.cat_id = categories.id');
-		$this->db->join('brands', 'products.brand_id = brands.id');
+		$this->db->order_by('products.id','desc');
+		$query = $this->db->get();
+		return $query->result();
+	}
+	 public function get_products_data($limit = 9)
+	 {
+	 	$this->db->select('products.*,categories.c_title');
+		$this->db->from('products');
+		$this->db->join('categories', 'products.cat_id = categories.id');
+		$this->db->order_by('products.id','desc');
+		$this->db->where('products.status',1);
+		$this->db->limit($limit);
+		$query = $this->db->get();
+		return $query->result();
+	 }
+
+	 	/* ======= GEt All Product Info =======*/
+	public function get_all_products_info()
+	{
+		// return $this->db->get('products')->result();
+		$this->db->select('products.*,categories.c_title');
+		$this->db->from('products');
+		$this->db->join('categories', 'products.cat_id = categories.id');
+		$this->db->where('products.status', 1);
 		$this->db->order_by('products.id','desc');
 		$query = $this->db->get();
 		return $query->result();
 	}
 
-	/*========== get feature product info =============*/
-	public function get_feature_products()
-	{
-		$this->db->select('products.*,categories.c_title, brands.b_title');
-		$this->db->from('products');
-		$this->db->join('categories', 'products.cat_id = categories.id');
-		$this->db->join('brands', 'products.brand_id = brands.id');
-		$this->db->where('products.feature',1);
-		$this->db->where('products.status',1);
-		$this->db->order_by('products.id','desc');
-		$query = $this->db->limit(8)->get();
 
-		return $query->result();
-	}
 
 	/*========== get feature product info =============*/
-	public function get_related_products($product_id = null, $brand_id = null, $cat_id = null, $limit = 4)
-	{
-		$this->db->select('products.*,categories.c_title, brands.b_title');
-		$this->db->from('products');
-		$this->db->join('categories', 'products.cat_id = categories.id');
-		$this->db->join('brands', 'products.brand_id = brands.id');
-		$this->db->where('products.cat_id',$cat_id);
-		$this->db->where('products.brand_id',$brand_id);
-		$this->db->where('products.status',1);
-		$this->db->where('products.id !=',$product_id);
-		$this->db->order_by('products.id','desc');
-		$query = $this->db->limit($limit)->get();
+	// public function get_feature_products()
+	// {
+	// 	$this->db->select('products.*,categories.c_title, brands.b_title');
+	// 	$this->db->from('products');
+	// 	$this->db->join('categories', 'products.cat_id = categories.id');
+	// 	$this->db->join('brands', 'products.brand_id = brands.id');
+	// 	$this->db->where('products.feature',1);
+	// 	$this->db->where('products.status',1);
+	// 	$this->db->order_by('products.id','desc');
+	// 	$query = $this->db->limit(8)->get();
 
-		return $query->result();
-	}
+	// 	return $query->result();
+	// }
+
+	/*========== get feature product info =============*/
+	// public function get_related_products($product_id = null, $brand_id = null, $cat_id = null, $limit = 4)
+	// {
+	// 	$this->db->select('products.*,categories.c_title, brands.b_title');
+	// 	$this->db->from('products');
+	// 	$this->db->join('categories', 'products.cat_id = categories.id');
+	// 	$this->db->join('brands', 'products.brand_id = brands.id');
+	// 	$this->db->where('products.cat_id',$cat_id);
+	// 	$this->db->where('products.brand_id',$brand_id);
+	// 	$this->db->where('products.status',1);
+	// 	$this->db->where('products.id !=',$product_id);
+	// 	$this->db->order_by('products.id','desc');
+	// 	$query = $this->db->limit($limit)->get();
+
+	// 	return $query->result();
+	// }
 
 	/*========== get New product info =============*/
-	public function get_top_sale_products($limit = null)
-	{
-		$this->db->select('products.*,categories.c_title, brands.b_title');
-		$this->db->from('products');
-		$this->db->join('categories', 'products.cat_id = categories.id');
-		$this->db->join('brands', 'products.brand_id = brands.id');
-		$this->db->where('products.top_sell',1);
-		$this->db->where('products.status',1);
-		$this->db->order_by('products.id','desc');
-		$query = $this->db->limit($limit)->get();
+	// public function get_top_sale_products($limit = null)
+	// {
+	// 	$this->db->select('products.*,categories.c_title, brands.b_title');
+	// 	$this->db->from('products');
+	// 	$this->db->join('categories', 'products.cat_id = categories.id');
+	// 	$this->db->join('brands', 'products.brand_id = brands.id');
+	// 	$this->db->where('products.top_sell',1);
+	// 	$this->db->where('products.status',1);
+	// 	$this->db->order_by('products.id','desc');
+	// 	$query = $this->db->limit($limit)->get();
 
-		return $query->result();
-	}
+	// 	return $query->result();
+	// }
 
 	/*========== get all product info =============*/
 	public function get_all_products()
 	{
-		$this->db->select('products.*,categories.c_title, brands.b_title');
+		$this->db->select('products.*,categories.c_title');
 		$this->db->from('products');
 		$this->db->join('categories', 'products.cat_id = categories.id');
-		$this->db->join('brands', 'products.brand_id = brands.id');
 		$this->db->where('products.status',1);
 		$this->db->order_by('products.id','desc');
 		$query = $this->db->limit(16)->get();
@@ -80,10 +104,9 @@ Class Product_model extends CI_Model{
 	public function get_categorywise_products($cat_id=null)
 	{
 
-		$this->db->select('products.*,categories.c_title, brands.b_title');
+		$this->db->select('products.*,categories.c_title');
 		$this->db->from('products');
 		$this->db->join('categories', 'products.cat_id = categories.id');
-		$this->db->join('brands', 'products.brand_id = brands.id');
 		$this->db->where('products.cat_id',$cat_id);
 		$this->db->where('products.status',1);
 		$this->db->order_by('products.id','desc');
@@ -92,28 +115,27 @@ Class Product_model extends CI_Model{
 	}
 
 	/*============ Get product in Category wise=============*/
-	public function get_brandwise_products($brand=null)
-	{
+	// public function get_brandwise_products($brand=null)
+	// {
 
-		$this->db->select('products.*,categories.c_title, brands.b_title');
-		$this->db->from('products');
-		$this->db->join('categories', 'products.cat_id = categories.id');
-		$this->db->join('brands', 'products.brand_id = brands.id');
-		$this->db->where('products.brand_id',$brand);
-		$this->db->where('products.status',1);
-		$this->db->order_by('products.id','desc');
-		$query = $this->db->get();
-		return $query->result();
-	}
+	// 	$this->db->select('products.*,categories.c_title, brands.b_title');
+	// 	$this->db->from('products');
+	// 	$this->db->join('categories', 'products.cat_id = categories.id');
+	// 	$this->db->join('brands', 'products.brand_id = brands.id');
+	// 	$this->db->where('products.brand_id',$brand);
+	// 	$this->db->where('products.status',1);
+	// 	$this->db->order_by('products.id','desc');
+	// 	$query = $this->db->get();
+	// 	return $query->result();
+	// }
 
 
 	/*============ get product deatils by id ==========*/
 	public function get_product_by_id($id=null)
 
-	{	$this->db->select('products.*,categories.c_title, brands.b_title');
+	{	$this->db->select('products.*,categories.c_title');
 		$this->db->from('products');
 		$this->db->join('categories', 'products.cat_id = categories.id');
-		$this->db->join('brands', 'products.brand_id = brands.id');
 		$this->db->where('products.id',$id);
 		$result = $this->db->get()->row();
 		if($result): return $result; else: return FALSE; endif;
@@ -127,17 +149,17 @@ Class Product_model extends CI_Model{
 		$attr = [
 			'product_id' 	=> $this->input->post('product_id'),
 			'product_name' 	=> $this->input->post('product_name'),
-			'brand_id' 		=> $this->input->post('brand_id'),
+			// 'brand_id' 		=> $this->input->post('brand_id'),
 			'cat_id' 		=> $this->input->post('cat_id'),
 			// 'quentity' 		=> $this->input->post('quentity'),
 			'price' 		=> $this->input->post('price'),
-			'discount' 		=> $this->input->post('discount'),
-			'prv_price' 	=> $this->input->post('prv_price'),
-			'top_sell' 		=> $this->input->post('top_sell'),
-			'sale' 			=> $this->input->post('sale'),
-			'up_comming' 	=> $this->input->post('up_comming'),
-			'feature' 		=> $this->input->post('feature'),
-			'overview' 		=> $this->input->post('overview'),
+			// 'discount' 		=> $this->input->post('discount'),
+			// 'prv_price' 	=> $this->input->post('prv_price'),
+			// 'top_sell' 		=> $this->input->post('top_sell'),
+			// 'sale' 			=> $this->input->post('sale'),
+			// 'up_comming' 	=> $this->input->post('up_comming'),
+			// 'feature' 		=> $this->input->post('feature'),
+			// 'overview' 		=> $this->input->post('overview'),
 			'status' 		=> $this->input->post('status'),
 			'details' 		=> $this->input->post('details'),
 			'created_at'	=>date('Y-m-d h:m:s')
@@ -195,17 +217,17 @@ Class Product_model extends CI_Model{
 		$attr = [
 			'product_id' 	=> $this->input->post('product_id'),
 			'product_name' 	=> $this->input->post('product_name'),
-			'brand_id' 		=> $this->input->post('brand_id'),
+			// 'brand_id' 		=> $this->input->post('brand_id'),
 			'cat_id' 		=> $this->input->post('cat_id'),
 			// 'quentity' 		=> $this->input->post('quentity'),
 			'price' 		=> $this->input->post('price'),
-			'discount' 		=> $this->input->post('discount'),
-			'prv_price' 	=> $this->input->post('prv_price'),
-			'top_sell' 		=> $this->input->post('top_sell'),
-			'sale' 			=> $this->input->post('sale'),
-			'up_comming' 	=> $this->input->post('up_comming'),
-			'feature' 		=> $this->input->post('feature'),
-			'overview' 		=> $this->input->post('overview'),
+			// 'discount' 		=> $this->input->post('discount'),
+			// 'prv_price' 	=> $this->input->post('prv_price'),
+			// 'top_sell' 		=> $this->input->post('top_sell'),
+			// 'sale' 			=> $this->input->post('sale'),
+			// 'up_comming' 	=> $this->input->post('up_comming'),
+			// 'feature' 		=> $this->input->post('feature'),
+			// 'overview' 		=> $this->input->post('overview'),
 			'status' 		=> $this->input->post('status'),
 			'details' 		=> $this->input->post('details')
 		];
@@ -237,6 +259,33 @@ Class Product_model extends CI_Model{
 	}
 
 
+	/*========= product delete============*/
+	public function product_delete($id=null)
+	{
+		
+		$this->db->where('id', $id);
+		$this->db->delete('products');
+
+		$product_images = $this->db->where('product_id', $id)->get('product_images')->result();
+		// var_dump($product_images); exit();
+		if($this->db->affected_rows()){
+
+			if(isset($product_images)){
+				foreach ($product_images as $image) {
+
+					$this->db->where('id', $image->id);
+					$this->db->delete('product_images');
+					if(file_exists($image->image_path)){
+						unlink($image->image_path);
+					}
+				}
+			}
+			
+			return TRUE;
+		}else{
+			return FALSE;
+		}
+	}
 
 	
 
@@ -268,8 +317,8 @@ Class Product_model extends CI_Model{
 
 				if( is_uploaded_file( $temp_name ) ){
 
-				move_uploaded_file( $temp_name, './libs/upload_pic/product_image/'.$file_name );
-				return './libs/upload_pic/product_image/'.$file_name;
+				move_uploaded_file( $temp_name, 'libs/upload_pic/product_image/'.$file_name );
+				return 'libs/upload_pic/product_image/'.$file_name;
 				
 			}else{
 				return false;
@@ -292,7 +341,7 @@ Class Product_model extends CI_Model{
 		 $configSize1['width']           = 450;
 		 $config['quality']   			 = '100';
 		 $configSize1['height']          = 350;
-		 $configSize1['new_image'] 		 = './libs/upload_pic/product_image/';
+		 $configSize1['new_image'] 		 = 'libs/upload_pic/product_image/';
 
 		 $this->image_lib->initialize($configSize1);
 		 $this->image_lib->resize();

@@ -68,7 +68,7 @@
 				dataType:'json',
 				data:{'title':title},
 				success:function(data){
-					alert(data);
+					
 					if(data == 0){
 						swal({
 		                  text: "Category Information not Insert. Try again Later.",
@@ -80,7 +80,7 @@
 						$('#tbody').empty()
 						var i = 1;
 						$.each(data, function(key , value){
-							var tr = '<tr> <td>'+ i++ +'</td> <td>'+value.title+'</td>';
+							var tr = '<tr> <td>'+ i++ +'</td> <td>'+value.c_title+'</td>';
 							tr = tr+ '<td> <ul class="icons-list"> <li class="text-primary-600"><a href="<?php echo base_url();?>category/edit/'+value.id+'" class="linka fancybox fancybox.ajax"><i class="icon-pencil7"></i></a></li>';
 							tr = tr+' <li class="text-danger-600"><a href="#"><i class="icon-trash"></i></a></li> </ul> </td> </tr>';
 							$('#tbody').append(tr);

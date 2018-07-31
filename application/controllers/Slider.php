@@ -19,7 +19,7 @@ Class Slider extends CI_Controller{
 
 		$data['title'] = 'Slider Image';
 		$data['page_path'] = 'admin/template/slider_page';
-		$data['sliders'] = $this->Slider_model->get_all_slider_data();
+		$data['sliders'] = $this->Slider_model->get_all_slider_data(); 
 
 		$this->load->view('admin/master', $data);
 	}

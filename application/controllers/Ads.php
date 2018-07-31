@@ -53,7 +53,7 @@ Class Ads extends CI_Controller{
 	public function store_ads_data()
 	{
 		$this->form_validation-> set_rules('a_title', 'Ads Title', 'trim|required');
-		$this->form_validation-> set_rules('position', 'Ads Position', 'trim|required');
+		// $this->form_validation-> set_rules('position', 'Ads Position', 'trim|required');
 		// $this->form_validation-> set_rules('image', 'Brand Title', 'trim|required');
 
 		if($this->form_validation->run() == FALSE){

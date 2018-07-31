@@ -12,37 +12,15 @@ $route['translate_uri_dashes'] = FALSE;
 /*============= FrontEnd Route List ===================*/
 
 $route['index'] = 'FrontEnd/index';
-$route['category/products/(:any)'] = 'FrontEnd/category_products/$1';
-$route['brand/products/(:any)'] = 'FrontEnd/brand_products/$1';
+$route['about-us'] = 'FrontEnd/about_us_page';
+$route['category/(:any)'] = 'FrontEnd/category_products/$1'; 
+$route['all/products'] = 'FrontEnd/all_products';
 $route['singel/product/(:any)'] = 'FrontEnd/singel_product/$1';
-$route['pop_up/product/(:any)'] = 'FrontEnd/popUp_singel_product/$1';
+$route['our_service'] = 'FrontEnd/our_service_page';
+$route['photo'] = 'FrontEnd/phote_gallary_page';
+$route['video'] = 'FrontEnd/video_gallary_page';
 $route['contact_us'] = 'FrontEnd/contacts_us_page';
-$route['cart'] = 'FrontEnd/cart_page';
-$route['checkout'] = 'FrontEnd/checkout_page';
-$route['order'] = 'FrontEnd/submit_order';
-
-$route['cart/add'] = 'Cart/add_cart';
-$route['cart/remove'] = 'Cart/remove_cart';
-$route['cart/update'] = 'Cart/update_cart';
-$route['cart/info'] = 'Cart/cart_info';
-
-
-// $route['shipping'] = 'FrontEnd/shipping_page';
-
-// $route['login'] = 'User/index';
-// $route['user/login'] ='User/login_data_check';
-// $route['register'] = 'User/register_page';
-// $route['user/registaion'] = 'User/user_registation_data_check';
-
-
-
-
-
-
-
-
-
-
+$route['md_message_page'] = 'FrontEnd/md_message_page';
 
 /*========== Admin Route List =============*/
 /*========== Admin Route List =============*/
@@ -65,7 +43,7 @@ $route['brand/update'] = 'Brand/update';
 $route['category'] = 'Category/index';
 $route['category/store'] = 'Category/store';
 $route['category/edit/(:any)'] = 'Category/edit/$1';
-$route['category/update'] = 'Category/update';
+$route['category_name/update'] = 'Category/update';
 
 /* ------- Products Route --------*/
 $route['products'] = 'Product/index';
@@ -73,15 +51,39 @@ $route['product/insert'] = 'Product/insert';
 $route['product/store'] = 'Product/store';
 $route['product/edit/(:any)'] = 'Product/edit/$1';
 $route['product/update/(:any)'] = 'Product/update/$1';
+$route['product/delete/(:any)'] = 'Product/delete/$1';
 $route['image/delete/(:any)/(:any)'] = 'Product/image_delete/$1/$2';
 
 
 /* --------- Template Route ----------*/
-$route['template/about'] = 'Template/about_info';
-$route['about_us'] = 'Template/about_us';
-$route['address'] = 'Template/address';
-$route['phone'] = 'Template/phone_number';
-$route['email'] = 'Template/email_address';
+
+$route['wellcome_note'] = 'Template/wellcome_note_page';
+$route['wellcome_note/update'] = 'Template/wellcome_note_update';
+$route['md_message'] = 'Template/md_message_page';
+$route['md_message/update'] = 'Template/md_message_update';
+$route['logo_page'] = 'Template/logo_page';
+$route['logo/store'] = 'Template/logo_store_update';
+$route['logo/delete/(:any)'] = 'Template/logo_delete/$1';
+
+
+/* --------- Pages Route ----------*/
+$route['page/contact_us_page'] = 'Page/contact_us_page';
+$route['page/about_us_page'] = 'Page/about_us_page';
+$route['about_us_update'] = 'Page/about_us_update';
+$route['page/gallery_page'] = 'Page/gallery_page';
+$route['gallary_image_store'] = 'Page/gallary_image_store';
+$route['gallery_image_delete/(:any)'] = 'Page/gallery_image_delete/$1';
+$route['address'] = 'Page/address';
+$route['phone'] = 'Page/phone_number';
+$route['email'] = 'Page/email_address';
+$route['page/service_page'] = 'Page/our_srvices_page';
+$route['service_update'] = 'Page/our_services_update';
+$route['page/video'] = 'Page/video_page';
+$route['video_store'] = 'Page/video_store';
+$route['video_delete/(:any)'] = 'Page/video_delete/$1';
+
+
+
 
 
 /* --------- Slider Route ----------*/
@@ -105,12 +107,4 @@ $route['admin/edit/(:any)'] = 'Sub_admin/edit_admin_page/$1';
 $route['admin/update/(:any)'] = 'Sub_admin/update_admin/$1';
 $route['admin/delete/(:any)'] = 'Sub_admin/delete_admin/$1';
 $route['password/check'] = 'Sub_admin/old_password_check';
-
-
-/*-------- Order Route-------------*/
-$route['order/list'] = 'Order/order_list';
-$route['deliver/order/list'] = 'Order/deliver_order_list';
-
-$route['order/view/(:any)'] = 'Order/view_order_product/$1';
-$route['order/deliver/(:any)'] = 'Order/deliver_order/$1';
 

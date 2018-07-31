@@ -37,10 +37,10 @@ Class Product extends CI_Controller{
 	{
 		$this->form_validation->set_rules('product_id', 'Product Id', 'trim|required|min_length[3]');
 		$this->form_validation->set_rules('product_name', 'Product Name', 'trim|required');
-		$this->form_validation->set_rules('brand_id', 'Brand Name', 'trim|required');
+		// $this->form_validation->set_rules('brand_id', 'Brand Name', 'trim|required');
 		$this->form_validation->set_rules('cat_id', 'Category Name', 'trim|required');
 		$this->form_validation->set_rules('price', 'Product Price', 'trim|required');
-		$this->form_validation->set_rules('overview', 'Overview', 'trim|required');
+		// $this->form_validation->set_rules('overview', 'Overview', 'trim|required');
 		$this->form_validation->set_rules('status', 'Product Status', 'trim|required');
 		$this->form_validation->set_rules('details', 'Product Details', 'trim|required');
 			
@@ -88,10 +88,10 @@ Class Product extends CI_Controller{
 	{
 		$this->form_validation->set_rules('product_id', 'Product Id', 'trim|required|min_length[3]');
 		$this->form_validation->set_rules('product_name', 'Product Name', 'trim|required');
-		$this->form_validation->set_rules('brand_id', 'Brand Name', 'trim|required');
+		// $this->form_validation->set_rules('brand_id', 'Brand Name', 'trim|required');
 		$this->form_validation->set_rules('cat_id', 'Category Name', 'trim|required');
 		$this->form_validation->set_rules('price', 'Product Price', 'trim|required');
-		$this->form_validation->set_rules('overview', 'Overview', 'trim|required');
+		// $this->form_validation->set_rules('overview', 'Overview', 'trim|required');
 		$this->form_validation->set_rules('status', 'Product Status', 'trim|required');
 		$this->form_validation->set_rules('details', 'Product Details', 'trim|required');
 			
@@ -120,6 +120,19 @@ Class Product extends CI_Controller{
 		}
 	}
 
+	public function delete($id = null)
+	{
+		
+		if($this->Product_model->product_delete($id)){
+			$data['success'] = 'Your Product Delete Successfully.';
+			$this->session->set_flashdata($data);
+			redirect('products');
+		}else{
+			$data['error'] = 'Your Product Not Delete Successfully.';
+			$this->session->set_flashdata($data);
+			redirect('products');
+		}
+	}
 
 	/* ------------ Product Image Delete -------------*/
 

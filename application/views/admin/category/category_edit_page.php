@@ -1,5 +1,5 @@
 
-<?php echo form_open('category/update');?>
+<?php echo form_open('category_name/update');?>
 <div class="panel-body" style="width: 500px;">
 	<div class="row">
 		<div class="form-group">

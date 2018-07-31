@@ -1,0 +1,33 @@
+
+.c_header{
+	background-color: #114480;
+	color: #fff;
+	border-bottom: 3px solid #e44102;
+}
+
+.md_img{
+	height: auto;
+	width: 75px;
+
+}
+
+.md-name{
+	color: #00ad85;
+	font-weight: bold;
+}
+.md-des{
+	font-weight: 500;
+	font-size: 13px;
+	font-style: italic;
+}
+.sidebar_padding{
+	padding: 15px 0px;
+}
+.fb_page{
+	min-height: 150px;
+	padding: 5px;
+}
+.fb_page .fb-page{
+	width: 100%;
+	height: auto;
+}

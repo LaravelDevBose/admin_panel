@@ -32,22 +32,36 @@
 				<ul class="navigation navigation-main navigation-accordion">
 
 					<!-- Main -->
-					<li class="active"><a href="<?php echo base_url();?>dashboard"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
-					<li><a href="<?php echo base_url();?>order/list"><i class="icon-cart2"></i> <span> Order List</span></a></li>
-					<li><a href="<?php echo base_url();?>deliver/order/list"><i class="icon-truck"></i> <span> Deliver Order List</span></a></li>
-					<li><a href="<?php echo base_url();?>brand"><i class="icon-list-unordered"></i> <span> Brand</span></a></li>
-					<li><a href="<?php echo base_url();?>category"><i class=" icon-cog2"></i> <span> Category</span></a></li>
-					<li><a href="<?php echo base_url();?>products"><i class="icon-bag"></i> <span> Products</span></a></li>
+					<li class="<?= ($this->uri->uri_string()== 'dashboard')?'active': ' ' ?>"><a href="<?php echo base_url();?>dashboard"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
+					<!-- <li><a href="<?php //echo base_url();?>order/list"><i class="icon-cart2"></i> <span> Order List</span></a></li> -->
+					<!-- <li><a href="<?php //echo base_url();?>deliver/order/list"><i class="icon-truck"></i> <span> Deliver Order List</span></a> </li> -->
+					<!-- <li><a href="<?php //echo base_url();?>brand"><i class="icon-list-unordered"></i> <span> Brand</span></a></li> -->
+					<li class="<?= ($this->uri->uri_string()== 'category')?'active': ' ' ?>"><a href="<?php echo base_url();?>category"><i class=" icon-cog2"></i> <span> Category</span></a></li>
+					<li class="<?= ($this->uri->uri_string()== 'products')?'active': ' ' ?>"><a href="<?php echo base_url();?>products"><i class="icon-bag"></i> <span> Products</span></a></li>
 
-					<li> <a href="#"><i class="icon-stack2"></i> <span>Template Design</span></a>
+					<li > <a href="#"><i class="icon-book"></i> <span>Pages</span></a>
 						<ul>
-							<li><a href="<?= base_url(); ?>template/about">Site Setting</a></li>
-							<li><a href="<?= base_url(); ?>sliders">Slider</a></li>
-							<li><a href="<?= base_url(); ?>ads">Ads</a></li>
+							<li class="<?= ($this->uri->uri_string()== 'page/contact_us_page')?'active': ' ' ?>"><a href="<?= base_url(); ?>page/contact_us_page">Contact Us</a></li>
+							<li class="<?= ($this->uri->uri_string()== 'page/about_us_page')?'active': ' ' ?>"><a href="<?= base_url(); ?>page/about_us_page">About Us</a></li>
+							<li class="<?= ($this->uri->uri_string()== 'page/service_page')?'active': ' ' ?>"><a href="<?= base_url(); ?>page/service_page">Our Service</a></li>
+							<li class="<?= ($this->uri->uri_string()== 'page/gallery_page')?'active': ' ' ?>"><a href="<?= base_url(); ?>page/gallery_page">Gallery</a></li>
+							<li class="<?= ($this->uri->uri_string()== 'page/video')?'active': ' ' ?>"><a href="<?= base_url(); ?>page/video">Video</a></li>
 							
 						</ul>
 					</li>
-					<li><a href="<?php echo base_url();?>admin_page"><i class="icon-user-lock"></i> <span> Admins</span></a></li>
+
+					<li> <a href="#"><i class="icon-stack2"></i> <span>Template Design</span></a>
+						<ul>
+							<li class="<?= ($this->uri->uri_string()== 'logo_page')?'active': ' ' ?>"><a href="<?= base_url(); ?>logo_page">Logo</a></li>
+							<li class="<?= ($this->uri->uri_string()== 'sliders')?'active': ' ' ?>"><a href="<?= base_url(); ?>sliders">Slider Images</a></li>
+							<li class="<?= ($this->uri->uri_string()== 'ads')?'active': ' ' ?>"><a href="<?= base_url(); ?>ads">Ads Images</a></li>
+							<li class="<?= ($this->uri->uri_string()== 'wellcome_note')?'active': ' ' ?>"><a href="<?= base_url(); ?>wellcome_note">WellCome Note</a></li>
+							<li class="<?= ($this->uri->uri_string()== 'md_message')?'active': ' ' ?>"><a href="<?= base_url(); ?>md_message">Md Message</a></li>
+							
+						</ul>
+					</li>
+
+					<li class="<?= ($this->uri->uri_string()== 'admin_page')?'active': ' ' ?>"><a href="<?php echo base_url();?>admin_page"><i class="icon-user-lock"></i> <span> Admins</span></a></li>
 
 				</ul>
 			</div>
